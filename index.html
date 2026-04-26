@@ -90,15 +90,18 @@ nav{
 /* Hero */
 .hero{
   position:relative;
-  background:linear-gradient(135deg,var(--bg-warm) 0%,var(--blush) 100%);
-  padding:90px 24px 110px;
+  background-image:linear-gradient(135deg,rgba(245,233,221,0.85) 0%,rgba(240,212,194,0.7) 100%),url('images/hero.jpg');
+  background-size:cover;
+  background-position:center;
+  padding:120px 24px 130px;
   overflow:hidden;
 }
 .hero::before{
   content:'';position:absolute;top:-100px;right:-100px;
   width:400px;height:400px;border-radius:50%;
-  background:rgba(232,181,168,0.4);
+  background:rgba(232,181,168,0.25);
   filter:blur(80px);
+  pointer-events:none;
 }
 .hero-inner{
   max-width:780px;margin:0 auto;
@@ -261,16 +264,19 @@ section{padding:90px 0}
 }
 .prod-card:hover{transform:translateY(-3px)}
 .prod-img{
-  height:240px;
-  background:linear-gradient(135deg,var(--blush) 0%,var(--rose) 100%);
-  display:flex;align-items:center;justify-content:center;
-  font-size:3rem;color:rgba(255,255,255,0.65);
+  height:280px;
+  background-color:var(--bg-warm);
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
 }
-.prod-card:nth-child(2) .prod-img{background:linear-gradient(135deg,#D4C5B3 0%,#B5A38F 100%)}
-.prod-card:nth-child(3) .prod-img{background:linear-gradient(135deg,#E8D9CC 0%,#C9B6A7 100%)}
-.prod-card:nth-child(4) .prod-img{background:linear-gradient(135deg,#A8B5A8 0%,var(--sage) 100%)}
-.prod-card:nth-child(5) .prod-img{background:linear-gradient(135deg,#E8B5A8 0%,var(--terracotta) 100%)}
-.prod-card:nth-child(6) .prod-img{background:linear-gradient(135deg,#F5E9DD 0%,var(--rose) 100%)}
+.prod-img.soft-suite{background-image:url('images/soft-suite.jpg')}
+.prod-img.sage-sunday{background-image:url('images/sage-sunday.jpg')}
+.prod-img.cloud-robe{background-image:url('images/cloud-robe.jpg')}
+.prod-img.moonrise{background-image:url('images/moonrise.jpg')}
+.prod-img.bridal-bundle{background-image:url('images/bridal-bundle.jpg')}
+.prod-img.gift-bundle{background-image:url('images/gift-bundle.jpg')}
 .prod-body{padding:18px 20px 20px}
 .prod-name{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:4px}
 .prod-meta{font-size:0.78rem;color:var(--muted);margin-bottom:10px}
@@ -505,7 +511,7 @@ footer a:hover{color:#FFF}
 
     <div class="prod-grid">
       <div class="prod-card">
-        <div class="prod-img">🌸</div>
+        <div class="prod-img soft-suite" role="img" aria-label="The Soft Suite cotton lounge set"></div>
         <div class="prod-body">
           <div class="prod-name">The Soft Suite</div>
           <div class="prod-meta">Cotton lounge set · 4 colors</div>
@@ -513,7 +519,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">🌿</div>
+        <div class="prod-img sage-sunday" role="img" aria-label="Sage Sunday Set modal lounge in sage green"></div>
         <div class="prod-body">
           <div class="prod-name">Sage Sunday Set</div>
           <div class="prod-meta">Modal lounge · Limited</div>
@@ -521,7 +527,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">🤍</div>
+        <div class="prod-img cloud-robe" role="img" aria-label="Cloud Cotton Robe in cream waffle weave"></div>
         <div class="prod-body">
           <div class="prod-name">Cloud Cotton Robe</div>
           <div class="prod-meta">Waffle weave · Unisex</div>
@@ -529,7 +535,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">🌙</div>
+        <div class="prod-img moonrise" role="img" aria-label="Moonrise Sleep Set in dusty rose"></div>
         <div class="prod-body">
           <div class="prod-name">Moonrise Sleep Set</div>
           <div class="prod-meta">Silk-touch · S/M/L/XL</div>
@@ -537,7 +543,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">🎀</div>
+        <div class="prod-img bridal-bundle" role="img" aria-label="Bridal Party Bundle in six pastel satin colors"></div>
         <div class="prod-body">
           <div class="prod-name">Bridal Party Bundle</div>
           <div class="prod-meta">Robe + sleep set · 6 colors</div>
@@ -545,7 +551,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">☁️</div>
+        <div class="prod-img gift-bundle" role="img" aria-label="First Soft Sunday Bundle curated gift set"></div>
         <div class="prod-body">
           <div class="prod-name">First Soft Sunday Bundle</div>
           <div class="prod-meta">Curated gift set</div>
