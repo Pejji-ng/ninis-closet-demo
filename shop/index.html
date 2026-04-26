@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop · nini's closet</title>
+<meta name="description" content="Shop nini's closet - sleep sets, robes, lounge sets, bridal bundles, gift boxes. Lagos-based loungewear.">
+<meta name="theme-color" content="#C97C5D">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FBF6F1;
+  --bg-warm:#F5E9DD;
+  --blush:#F0D4C2;
+  --terracotta:#C97C5D;
+  --terracotta-dark:#A85F42;
+  --sage:#7C9082;
+  --text:#2A1F19;
+  --muted:#8B7868;
+  --border:#E8DBC8;
+  --card:#FFFFFF;
+  --rose:#E8B5A8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:15px;
+}
+h1,h2,h3,h4{font-family:'DM Serif Display',serif;font-weight:400;line-height:1.15;letter-spacing:-0.005em}
+a{color:var(--terracotta);text-decoration:none;transition:color 0.2s}
+a:hover{color:var(--terracotta-dark)}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* Promo bar */
+.promo{
+  background:var(--text);color:var(--bg);
+  text-align:center;padding:8px 16px;
+  font-size:0.74rem;letter-spacing:0.4px;font-weight:500;
+}
+
+/* Nav */
+nav{
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:50;
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1280px;margin:0 auto;gap:24px}
+.logo{font-family:'DM Serif Display',serif;font-size:1.55rem;color:var(--text);letter-spacing:-0.02em;flex-shrink:0}
+.logo i{font-style:italic;color:var(--terracotta)}
+.nav-search{
+  flex:1;max-width:420px;display:none;
+  position:relative;
+}
+.nav-search input{
+  width:100%;padding:10px 14px 10px 40px;
+  font-family:'Inter',sans-serif;font-size:0.85rem;
+  background:var(--bg-warm);border:1px solid var(--border);
+  border-radius:30px;color:var(--text);
+}
+.nav-search input::placeholder{color:var(--muted)}
+.nav-search::before{
+  content:'';position:absolute;left:14px;top:50%;
+  transform:translateY(-50%);
+  width:14px;height:14px;
+  background:no-repeat center/contain url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B7868' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+}
+.nav-actions{display:flex;align-items:center;gap:18px}
+.nav-link{font-size:0.86rem;color:var(--text);font-weight:500}
+.nav-link:hover{color:var(--terracotta)}
+.cart-btn{
+  background:var(--text);color:var(--bg);
+  padding:10px 18px;border-radius:30px;
+  font-size:0.82rem;font-weight:600;
+  display:inline-flex;align-items:center;gap:8px;
+  cursor:pointer;border:none;
+  font-family:'Inter',sans-serif;
+}
+.cart-btn:hover{background:#000}
+.cart-count{
+  background:var(--terracotta);color:#FFF;
+  width:20px;height:20px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:0.7rem;font-weight:700;
+}
+@media(min-width:780px){
+  .nav-search{display:block}
+}
+
+/* Category bar */
+.cats{
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  padding:14px 0;
+}
+.cats-inner{display:flex;gap:8px;overflow-x:auto;padding:0 24px;max-width:1280px;margin:0 auto;scrollbar-width:none}
+.cats-inner::-webkit-scrollbar{display:none}
+.cat-pill{
+  background:var(--bg);color:var(--text);
+  padding:8px 18px;border-radius:30px;
+  font-size:0.82rem;font-weight:500;
+  border:1px solid var(--border);
+  cursor:pointer;white-space:nowrap;
+  transition:all 0.15s;
+  font-family:'Inter',sans-serif;
+}
+.cat-pill:hover{border-color:var(--terracotta);color:var(--terracotta)}
+.cat-pill.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+
+/* Hero / banner */
+.shop-hero{
+  background:var(--bg-warm);
+  padding:36px 0 28px;
+}
+.shop-hero h1{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:6px;color:var(--text)}
+.shop-hero h1 i{color:var(--terracotta);font-style:italic}
+.shop-hero p{color:var(--muted);font-size:0.95rem}
+
+/* Sort + count */
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;flex-wrap:wrap;gap:12px;
+}
+.toolbar-count{font-size:0.82rem;color:var(--muted);font-weight:500}
+.toolbar-count strong{color:var(--text);font-weight:600}
+.toolbar-sort select{
+  background:var(--card);border:1px solid var(--border);
+  padding:8px 14px;border-radius:24px;
+  font-family:'Inter',sans-serif;font-size:0.82rem;color:var(--text);
+  cursor:pointer;
+}
+
+/* Product grid */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:18px;
+  padding-bottom:60px;
+}
+.prod{
+  background:var(--card);
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:transform 0.2s,box-shadow 0.25s;
+  cursor:pointer;
+  position:relative;
+}
+.prod:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(201,124,93,0.1)}
+.prod-img{
+  height:280px;
+  background-color:var(--bg-warm);
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.prod-tag{
+  position:absolute;top:12px;left:12px;
+  padding:4px 12px;border-radius:20px;
+  font-size:0.66rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+}
+.prod-tag.new{background:var(--terracotta);color:#FFF}
+.prod-tag.bestseller{background:var(--text);color:var(--bg)}
+.prod-tag.lowstock{background:var(--rose);color:var(--text)}
+.prod-tag.sale{background:var(--sage);color:#FFF}
+
+.prod-add{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--text);color:var(--bg);
+  padding:11px;text-align:center;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.5px;
+  text-transform:uppercase;
+  transform:translateY(100%);transition:transform 0.25s ease;
+  font-family:'Inter',sans-serif;border:none;width:100%;
+  cursor:pointer;
+}
+.prod:hover .prod-add{transform:translateY(0)}
+.prod-add:hover{background:#000;color:var(--bg)}
+.prod-body{padding:14px 16px 18px}
+.prod-name{
+  font-family:'DM Serif Display',serif;
+  font-size:1.05rem;color:var(--text);margin-bottom:3px;
+  line-height:1.2;
+}
+.prod-meta{font-size:0.74rem;color:var(--muted);margin-bottom:8px}
+.prod-price{
+  font-family:'Inter',sans-serif;
+  font-weight:700;font-size:0.95rem;color:var(--terracotta-dark);
+}
+.prod-price s{color:var(--muted);font-weight:400;margin-left:6px;font-size:0.8rem}
+
+/* Promo strip mid-page */
+.midstrip{
+  background:var(--terracotta);color:#FFF;
+  padding:36px 24px;border-radius:14px;
+  margin:30px 0;
+  text-align:center;
+}
+.midstrip h3{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:8px;color:#FFF}
+.midstrip p{color:rgba(255,255,255,0.9);font-size:0.92rem;max-width:520px;margin:0 auto 14px}
+.midstrip a{
+  display:inline-block;background:#FFF;color:var(--terracotta-dark);
+  padding:10px 24px;border-radius:30px;
+  font-weight:600;font-size:0.85rem;
+}
+.midstrip a:hover{background:var(--bg);color:var(--text)}
+
+/* Footer */
+footer{
+  background:var(--text);color:var(--bg);
+  padding:50px 24px 30px;
+  margin-top:30px;
+}
+.foot-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:30px;padding-bottom:30px;
+  border-bottom:1px solid rgba(251,246,241,0.12);
+}
+.foot-col h4{
+  font-family:'Inter',sans-serif;font-weight:600;
+  font-size:0.78rem;text-transform:uppercase;letter-spacing:2px;
+  color:var(--blush);margin-bottom:14px;
+}
+.foot-col a{
+  display:block;color:rgba(251,246,241,0.78);
+  font-size:0.86rem;padding:5px 0;
+}
+.foot-col a:hover{color:#FFF}
+.foot-meta{
+  max-width:1280px;margin:24px auto 0;
+  font-size:0.76rem;color:rgba(251,246,241,0.5);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.foot-meta a{color:var(--blush)}
+.foot-meta a:hover{color:#FFF}
+
+/* Toast (cart-add feedback) */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--text);color:var(--bg);
+  padding:14px 22px;border-radius:30px;
+  font-size:0.86rem;font-weight:500;
+  box-shadow:0 8px 24px rgba(0,0,0,0.2);
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.25s,transform 0.25s;
+  pointer-events:none;
+  z-index:100;
+  display:flex;align-items:center;gap:10px;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast::before{
+  content:'\2713';color:var(--sage);font-weight:700;font-size:1rem;
+}
+
+/* View toggle */
+.view-toggle{
+  background:var(--bg-warm);
+  padding:14px 24px;text-align:center;
+  font-size:0.85rem;
+  border-bottom:1px solid var(--border);
+}
+.view-toggle a{font-weight:600;text-decoration:underline}
+
+@media(max-width:640px){
+  .nav-row{padding:14px 18px}
+  .cart-btn span{display:none}
+  .shop-hero{padding:24px 0 20px}
+  .toolbar{padding:14px 0}
+  .midstrip{padding:24px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="promo">Free Lagos delivery on orders over ₦25,000 · Use SOFT10 for 10% off your first order</div>
+
+<nav>
+  <div class="nav-row">
+    <div class="logo">nini's <i>closet</i></div>
+    <div class="nav-search">
+      <input type="search" placeholder="Search robes, sleep sets, gifts..." aria-label="Search products">
+    </div>
+    <div class="nav-actions">
+      <a href="../" class="nav-link" aria-label="Back to story site">Story</a>
+      <button class="cart-btn" id="cartBtn" type="button" aria-label="Open cart">
+        <span>Bag</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="view-toggle">
+  Now viewing the <strong>shop</strong> concept · <a href="../">switch to the story version</a>
+</div>
+
+<div class="cats">
+  <div class="cats-inner">
+    <button class="cat-pill active" data-cat="all" type="button">All · 12</button>
+    <button class="cat-pill" data-cat="sleep" type="button">Sleep</button>
+    <button class="cat-pill" data-cat="lounge" type="button">Lounge</button>
+    <button class="cat-pill" data-cat="robes" type="button">Robes</button>
+    <button class="cat-pill" data-cat="gifts" type="button">Gifts</button>
+    <button class="cat-pill" data-cat="bridal" type="button">Bridal</button>
+    <button class="cat-pill" data-cat="archive" type="button">Archive</button>
+  </div>
+</div>
+
+<header class="shop-hero">
+  <div class="container">
+    <h1>Shop the <i>collection</i></h1>
+    <p>Soft loungewear, made for slow mornings. Free Lagos delivery over ₦25,000.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="toolbar">
+    <div class="toolbar-count"><strong>12</strong> pieces</div>
+    <div class="toolbar-sort">
+      <select aria-label="Sort products">
+        <option>Sort: Featured</option>
+        <option>Newest</option>
+        <option>Price: Low to high</option>
+        <option>Price: High to low</option>
+        <option>Bestselling</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="products" id="products">
+
+    <article class="prod" data-cat="lounge">
+      <div class="prod-img" style="background-image:url('../images/soft-suite.jpg')">
+        <span class="prod-tag bestseller">Bestseller</span>
+        <button class="prod-add" type="button" data-name="The Soft Suite" data-price="28500">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">The Soft Suite</div>
+        <div class="prod-meta">Cotton lounge set · 4 colors</div>
+        <div class="prod-price">₦28,500</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="lounge">
+      <div class="prod-img" style="background-image:url('../images/sage-sunday.jpg')">
+        <span class="prod-tag lowstock">Low stock</span>
+        <button class="prod-add" type="button" data-name="Sage Sunday Set" data-price="32000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Sage Sunday Set</div>
+        <div class="prod-meta">Modal lounge · Limited</div>
+        <div class="prod-price">₦32,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="robes">
+      <div class="prod-img" style="background-image:url('../images/cloud-robe.jpg')">
+        <span class="prod-tag bestseller">Bestseller</span>
+        <button class="prod-add" type="button" data-name="Cloud Cotton Robe" data-price="24000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Cloud Cotton Robe</div>
+        <div class="prod-meta">Waffle weave · Unisex</div>
+        <div class="prod-price">₦24,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="sleep">
+      <div class="prod-img" style="background-image:url('../images/moonrise.jpg')">
+        <span class="prod-tag new">New</span>
+        <button class="prod-add" type="button" data-name="Moonrise Sleep Set" data-price="35000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Moonrise Sleep Set</div>
+        <div class="prod-meta">Silk-touch · S/M/L/XL</div>
+        <div class="prod-price">₦35,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="bridal">
+      <div class="prod-img" style="background-image:url('../images/bridal-bundle.jpg')">
+        <span class="prod-tag new">New</span>
+        <button class="prod-add" type="button" data-name="Bridal Party Bundle" data-price="42000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Bridal Party Bundle</div>
+        <div class="prod-meta">Robe + sleep set · 6 colors</div>
+        <div class="prod-price">₦42,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="gifts">
+      <div class="prod-img" style="background-image:url('../images/gift-bundle.jpg')">
+        <button class="prod-add" type="button" data-name="First Soft Sunday Bundle" data-price="55000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">First Soft Sunday Bundle</div>
+        <div class="prod-meta">Curated gift set</div>
+        <div class="prod-price">₦55,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="sleep">
+      <div class="prod-img" style="background-image:url('../images/col-sleep.jpg')">
+        <button class="prod-add" type="button" data-name="Whisper Nightgown Set" data-price="22000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Whisper Nightgown Set</div>
+        <div class="prod-meta">Cotton · Cream + dusty blue</div>
+        <div class="prod-price">₦22,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="lounge">
+      <div class="prod-img" style="background-image:url('../images/col-lounge.jpg')">
+        <span class="prod-tag sale">10% off</span>
+        <button class="prod-add" type="button" data-name="Slow Morning Bundle" data-price="29000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Slow Morning Bundle</div>
+        <div class="prod-meta">Lounge set + tea + book</div>
+        <div class="prod-price">₦29,000 <s>₦32,000</s></div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="robes">
+      <div class="prod-img" style="background-image:url('../images/col-robes.jpg')">
+        <button class="prod-add" type="button" data-name="Gallery Robe Trio" data-price="58000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Gallery Robe Trio</div>
+        <div class="prod-meta">Three robes · cream blush sage</div>
+        <div class="prod-price">₦58,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="gifts">
+      <div class="prod-img" style="background-image:url('../images/col-gifting.jpg')">
+        <button class="prod-add" type="button" data-name="First Gift Box" data-price="38000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">First Gift Box</div>
+        <div class="prod-meta">Kraft box · custom note</div>
+        <div class="prod-price">₦38,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="bridal">
+      <div class="prod-img" style="background-image:url('../images/col-bridal.jpg')">
+        <span class="prod-tag bestseller">Bestseller</span>
+        <button class="prod-add" type="button" data-name="Bridesmaid Six-Set" data-price="78000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Bridesmaid Six-Set</div>
+        <div class="prod-meta">Six matching satin robes</div>
+        <div class="prod-price">₦78,000</div>
+      </div>
+    </article>
+
+    <article class="prod" data-cat="archive">
+      <div class="prod-img" style="background-image:url('../images/col-archive.jpg')">
+        <span class="prod-tag sale">25% off</span>
+        <button class="prod-add" type="button" data-name="Archive Bundle" data-price="18000">Add to bag</button>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">Archive Bundle</div>
+        <div class="prod-meta">Past-season last-of-stock</div>
+        <div class="prod-price">₦18,000 <s>₦24,000</s></div>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="midstrip">
+    <h3>The First Soft Sunday Bundle</h3>
+    <p>Robe + sleep set + custom gift wrap + handwritten note. Delivered to her doorstep within 48 hours in Lagos. Made for the friend who needs a real Sunday.</p>
+    <a href="#products">Shop gift bundles →</a>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <h4>nini's closet</h4>
+      <p style="color:rgba(251,246,241,0.7);font-size:0.84rem;line-height:1.6;font-family:'Inter',sans-serif">Soft loungewear, made for slow mornings. Lagos, Nigeria.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <a href="#products">All loungewear</a>
+      <a href="#products">Sleep sets</a>
+      <a href="#products">Robes</a>
+      <a href="#products">Gift bundles</a>
+      <a href="#products">Bridal</a>
+    </div>
+    <div class="foot-col">
+      <h4>Help</h4>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Size guide</a>
+      <a href="#">Care instructions</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="foot-col">
+      <h4>Connect</h4>
+      <a href="https://wa.me/2349044526924">WhatsApp</a>
+      <a href="https://instagram.com/ninis.closet">Instagram</a>
+      <a href="mailto:hello@pejji.com">Email</a>
+      <a href="../">Story version</a>
+    </div>
+  </div>
+  <div class="foot-meta">
+    <span>© 2026 nini's closet · Lagos, Nigeria</span>
+    <span>Built by <a href="https://pejji.com">Pejji</a> · web agency for African founders</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  // Filter pills
+  const pills = document.querySelectorAll('.cat-pill');
+  const products = document.querySelectorAll('.prod');
+  pills.forEach(pill => pill.addEventListener('click', () => {
+    const cat = pill.dataset.cat;
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    let count = 0;
+    products.forEach(p => {
+      const show = cat === 'all' || p.dataset.cat === cat;
+      p.style.display = show ? '' : 'none';
+      if (show) count++;
+    });
+    document.querySelector('.toolbar-count').innerHTML = '<strong>' + count + '</strong> pieces';
+  }));
+
+  // Cart
+  let cart = [];
+  const cartCount = document.getElementById('cartCount');
+  const toast = document.getElementById('toast');
+  document.querySelectorAll('.prod-add').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const name = btn.dataset.name;
+      const price = parseInt(btn.dataset.price, 10);
+      cart.push({name, price});
+      cartCount.textContent = cart.length;
+      toast.textContent = name + ' added to bag';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    });
+  });
+
+  // Cart button click
+  document.getElementById('cartBtn').addEventListener('click', () => {
+    if (cart.length === 0) {
+      alert("Your bag is empty. Add a piece to get started.\n\nThis is a demo - in production you'd see a slide-out cart with checkout via Paystack.");
+    } else {
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const items = cart.map(i => '· ' + i.name + ' · ₦' + i.price.toLocaleString()).join('\n');
+      alert('Demo cart (' + cart.length + ' items):\n\n' + items + '\n\nSubtotal: ₦' + total.toLocaleString() + '\n\nIn production: this opens a slide-out drawer with Paystack checkout.');
+    }
+  });
+})();
+</script>
+</body>
+</html>
