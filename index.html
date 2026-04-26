@@ -189,18 +189,19 @@ section{padding:90px 0}
 .col-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(201,124,93,0.12)}
 .col-img{
   height:280px;
-  background:linear-gradient(135deg,var(--blush) 0%,var(--rose) 100%);
-  display:flex;align-items:center;justify-content:center;
+  background-color:var(--bg-warm);
+  background-size:cover;
+  background-position:center;
   position:relative;overflow:hidden;
-  font-size:5rem;
-  color:rgba(255,255,255,0.85);
+  transition:transform 0.4s ease;
 }
-.col-card.sleep .col-img{background:linear-gradient(135deg,#E8D9CC 0%,#C9B6A7 100%)}
-.col-card.lounge .col-img{background:linear-gradient(135deg,var(--blush) 0%,var(--rose) 100%)}
-.col-card.robes .col-img{background:linear-gradient(135deg,#D4C5B3 0%,#B5A38F 100%)}
-.col-card.gift .col-img{background:linear-gradient(135deg,#E8B5A8 0%,var(--terracotta) 100%)}
-.col-card.bridal .col-img{background:linear-gradient(135deg,#F5E9DD 0%,var(--rose) 100%)}
-.col-card.archive .col-img{background:linear-gradient(135deg,#A8B5A8 0%,var(--sage) 100%)}
+.col-card:hover .col-img{transform:scale(1.04)}
+.col-card.sleep .col-img{background-image:url('images/col-sleep.jpg')}
+.col-card.lounge .col-img{background-image:url('images/col-lounge.jpg')}
+.col-card.robes .col-img{background-image:url('images/col-robes.jpg')}
+.col-card.gift .col-img{background-image:url('images/col-gifting.jpg')}
+.col-card.bridal .col-img{background-image:url('images/col-bridal.jpg')}
+.col-card.archive .col-img{background-image:url('images/col-archive.jpg')}
 .col-body{padding:22px 24px}
 .col-tag{
   font-size:0.68rem;text-transform:uppercase;letter-spacing:2px;
@@ -221,12 +222,11 @@ section{padding:90px 0}
 }
 .story-img{
   height:380px;
-  background:linear-gradient(135deg,var(--blush) 0%,var(--terracotta) 100%);
+  background-color:var(--bg-warm);
+  background-image:url('images/story.jpg');
+  background-size:cover;
+  background-position:center;
   border-radius:24px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:8rem;color:rgba(255,255,255,0.4);
-  font-family:'DM Serif Display',serif;
-  font-style:italic;
 }
 .story-text h2{margin-bottom:18px}
 .story-text p{font-size:1rem;line-height:1.75;margin-bottom:14px}
@@ -430,7 +430,7 @@ footer a:hover{color:#FFF}
     </div>
     <div class="col-grid">
       <div class="col-card sleep">
-        <div class="col-img">🌙</div>
+        <div class="col-img" role="img" aria-label="Folded sleep dresses in cream and dusty blue"></div>
         <div class="col-body">
           <div class="col-tag">Sleep</div>
           <div class="col-name">The Sleep Edit</div>
@@ -438,7 +438,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="col-card lounge">
-        <div class="col-img">☕</div>
+        <div class="col-img" role="img" aria-label="Cream cotton lounge set with tea and book"></div>
         <div class="col-body">
           <div class="col-tag">Lounge</div>
           <div class="col-name">Sunday Suites</div>
@@ -446,7 +446,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="col-card robes">
-        <div class="col-img">🧖</div>
+        <div class="col-img" role="img" aria-label="Three robes in cream blush sage hanging on hooks"></div>
         <div class="col-body">
           <div class="col-tag">Robes</div>
           <div class="col-name">The Robe Closet</div>
@@ -454,7 +454,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="col-card gift">
-        <div class="col-img">🎁</div>
+        <div class="col-img" role="img" aria-label="Kraft paper gift box with blush satin loungewear"></div>
         <div class="col-body">
           <div class="col-tag">Gift sets</div>
           <div class="col-name">Gifting</div>
@@ -462,7 +462,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="col-card bridal">
-        <div class="col-img">💍</div>
+        <div class="col-img" role="img" aria-label="Six matching satin robes in pastel colors"></div>
         <div class="col-body">
           <div class="col-tag">Bridal</div>
           <div class="col-name">The Bridal Suite</div>
@@ -470,7 +470,7 @@ footer a:hover{color:#FFF}
         </div>
       </div>
       <div class="col-card archive">
-        <div class="col-img">✨</div>
+        <div class="col-img" role="img" aria-label="Vintage style folded fabric squares in earth tones"></div>
         <div class="col-body">
           <div class="col-tag">Archive</div>
           <div class="col-name">Last Chance</div>
@@ -484,7 +484,7 @@ footer a:hover{color:#FFF}
 <section class="story" id="story">
   <div class="container">
     <div class="story-grid">
-      <div class="story-img">N</div>
+      <div class="story-img" role="img" aria-label="Designer workspace with folded fabric swatches and tea"></div>
       <div class="story-text">
         <div class="section-tag">Our story</div>
         <h2>Sunday should feel like a hug.</h2>
