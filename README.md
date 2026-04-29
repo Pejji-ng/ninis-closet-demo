@@ -1,6 +1,6 @@
-# nini's closet — Vision Demo
+# Everything_nini — Vision Demo
 
-A vision demo for **nini's closet**, a Lagos-based loungewear brand. Built by Pejji as a "what if your boutique site looked like this" surprise prototype.
+A vision demo for **Everything_nini**, a Lagos-based loungewear brand. Built by Pejji as a "what if your boutique site looked like this" surprise prototype.
 
 ## What this is
 
@@ -31,7 +31,7 @@ A vision demo for **nini's closet**, a Lagos-based loungewear brand. Built by Pe
 2. Cart + checkout via Paystack (or Shopify integration if she prefers)
 3. Real testimonials from customers
 4. Email capture wired to Mailchimp / Brevo / similar
-5. Custom domain (ninis-closet.com or similar)
+5. Custom domain (everything-nini.com or similar)
 6. Cloudflare Pages with security headers + NDPA cookie consent
 7. Optional: Instagram shop integration
 
