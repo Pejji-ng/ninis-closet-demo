@@ -25,7 +25,7 @@ A vision demo for **Everything_nini**, a Lagos-based loungewear brand. Built by 
 - Product names + prices + testimonials are placeholders
 - Not yet running on a custom domain
 
-## Production roadmap (after Nini sees it + approves)
+## Production roadmap (after Everything_nini reviews + approves)
 
 1. Real product photos + actual product names + actual pricing
 2. Cart + checkout via Paystack (or Shopify integration if she prefers)
